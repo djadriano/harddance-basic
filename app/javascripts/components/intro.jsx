@@ -27,19 +27,34 @@ export default class IntroComponent extends Component {
 
   componentDidUpdate() {
     if( this.props.videoInitialized ) {
-      this.close();
+      this.closeLoading();
+      this.startIntro()
     }
   }
 
-  close() {
-    TweenMax.to('.hd-intro-title', 1.5, { opacity: 0, ease: Back.easeOut.config(1.5), delay: 0.6});
-    TweenMax.to('.hd-intro', 1.8, { height: 0, ease: Back.easeOut.config(1.5), delay: 1.6});
+  closeLoading() {
+    TweenMax.to('.hd-intro-title', 1, { opacity: 0, ease: Back.easeInOut.config(1), delay: 0.3});
+  }
+
+  startIntro() {
+    TweenMax.to('.hd-logo span', 1, { y: "0%", ease: Back.easeInOut.config(1), delay: 1.15});
+    TweenMax.to('.hd-text span', 1, { y: "0%", ease: Back.easeInOut.config(1), delay: 1.75});
   }
 
   render() {
     return (
       <div className="hd-intro">
-        <h2 className="hd-intro-title">Harddance.com.br</h2>
+        <div className="hd-loading">
+          <h2 className="hd-intro-title">Carregando...</h2>
+        </div>
+        <div className="hd-coming-soon">
+          <h1 className="hd-logo">
+            <span>HardDance.com.br</span>
+          </h1>
+          <div className="hd-text">
+            <span>Em breve</span>
+          </div>
+        </div>
       </div>
     );
   }

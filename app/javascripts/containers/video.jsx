@@ -48,7 +48,6 @@ function mapStateToProps(state) {
 const mapDispatchToProps = (dispatch) => {
   return {
     videoLoaded: () => {
-      console.log('aaa');
       dispatch(videoActions.loaded());
     }
   }

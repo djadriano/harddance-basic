@@ -13,6 +13,8 @@ body {
 body {
   margin: 0;
   padding: 0;
+  background: #000;
+  font-family: 'Fjalla One', sans-serif;
 }
 
 #app {
@@ -24,16 +26,6 @@ body {
   height: 100vh;
   overflow: hidden;
   position: relative;
-
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, .2);
-  }
 }
 
 #player {
@@ -48,9 +40,39 @@ body {
   width: 100%;
   height: 100%;
   z-index: 10;
-  background: #fff;
+  background: rgba(0, 0, 0, .2);
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  color: #fff;
+}
+
+.hd-coming-soon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.hd-logo,
+.hd-text {
+  overflow: hidden;
+}
+
+.hd-logo {
+  margin-bottom: 10px;
+}
+
+.hd-logo span,
+.hd-text span {
+  transform: translateY(100%);
+  display: inline-block;
 }

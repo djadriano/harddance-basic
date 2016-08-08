@@ -12,17 +12,12 @@ export default class VideoComponent extends Component {
   constructor(props) {
     super(props);
 
-    this.arrVideos = ['QtYDvqJgQqo', 'B-7m0EfW7LM', 'VF1Yz05iQM0'];
+    this.arrVideos = ['LM53ZMFjfKk', 'HkSmJQMudS4', 'eLUOv6owCbI'];
   }
 
   componentDidUpdate() {
-    if(this.props.appInitialized) {
-      this.initialize();
-    }
-
-    if( !this.props.introOpen ) {
-      this.playVideo();
-    }
+    if( this.props.appInitialized ) this.initialize();
+    if( !this.props.introOpen ) this.playVideo();
   }
 
   initialize() {
@@ -36,7 +31,8 @@ export default class VideoComponent extends Component {
           'rel'           : 0,
           'showinfo'      : 0,
           'modestbranding': 0,
-          'iv_load_policy': 3
+          'iv_load_policy': 3,
+          'loop'          : 1
         },
         events: {
           'onReady'      : this.onPlayerReady.bind(this),
@@ -51,7 +47,7 @@ export default class VideoComponent extends Component {
   }
 
   playVideo() {
-    this.player.playVideo();
+    this.player ? this.player.playVideo() : null;
   }
 
   onPlayerStateChange() {
